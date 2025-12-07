@@ -11,7 +11,7 @@ This article will introduce the integration instructions for the Sora Videos Gen
 
 ### Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) page. After entering the page, click the "Acquire" button, as shown in the image below:
+To use the API, you need to first apply for the corresponding service on the [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) page. After entering the page, click the "Acquire" button, as shown in the image:
 
 ![](https://cdn.acedata.cloud/q6ytrc.png)
 
@@ -21,7 +21,7 @@ Upon your first application, there will be a free quota available for you to use
 
 ### Basic Usage
 
-First, understand the basic usage method, which involves inputting the prompt `prompt`, an array of reference image links `image_urls`, and the model `model` to obtain the processed results. The specific content is as follows:
+First, understand the basic usage method, which involves inputting the prompt `prompt`, an array of reference image links `image_urls`, and the model `model` to obtain the processed result. The specific content is as follows:
 
 <p><img src="https://cdn.acedata.cloud/h8dyz3.png" width="500" class="m-auto"></p>
 
@@ -41,11 +41,11 @@ Additionally, the Request Body is set, including:
 - `prompt`: the prompt.
 - `callback_url`: the URL to which the result needs to be returned.
 
-After selection, you can see that the corresponding code is generated on the right side, as shown in the image below:
+After selection, you can see that the corresponding code is generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test it. As shown in the above image, we obtained the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
@@ -100,11 +100,11 @@ An example of filling in is as follows:
 
 <p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" class="m-auto"></p>
 
-After filling it out, the code is automatically generated as follows:
+After filling in, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
-The corresponding code is:
+The corresponding code:
 
 ```python
 import requests
@@ -154,7 +154,7 @@ If you want to generate a character video task, the parameter `character_url` mu
 
 - character_url: The video link needed to create the character. Note that the video must not contain real people, otherwise it will fail.
 
-An example of filling in is as follows:
+An example of how to fill it out is as follows:
 
 <p><img src="https://cdn.acedata.cloud/2nhdr2.png" width="500" class="m-auto"></p>
 
@@ -211,7 +211,7 @@ It can be seen that the generated effect is a character generation video, and th
 
 ### Asynchronous Callback
 
-Since the Sora Videos Generation API takes a relatively long time to generate, about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the Sora Videos Generation API takes a relatively long time to generate, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
 The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
 
@@ -240,7 +240,6 @@ After a moment, we can observe the result of the generated song at `https://webh
 ![](https://cdn.acedata.cloud/0j7nra.png)
 
 The content is as follows:
-```
 ```json
 {
     "success": true,
