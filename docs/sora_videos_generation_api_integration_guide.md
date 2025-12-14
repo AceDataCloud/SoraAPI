@@ -14,7 +14,7 @@ Upon your first application, there will be a free quota available for you to use
 
 ## Basic Usage
 
-First, understand the basic usage method, which involves inputting the prompt `prompt`, an array of reference image links `image_urls`, and the model `model` to obtain the processed result. The specific content is as follows:
+First, understand the basic usage method, which involves inputting the prompt `prompt`, an array of reference image links `image_urls`, and the model `model` to obtain the processed results. The specific content is as follows:
 
 <p><img src="https://cdn.acedata.cloud/h8dyz3.png" width="500" class="m-auto"></p>
 
@@ -25,12 +25,12 @@ Here, we can see that we have set the Request Headers, including:
 
 Additionally, the Request Body is set, including:
 
-- `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` can independently choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports videos with a `duration` of 25 seconds, while `sora-2` only supports videos of 10 or 15 seconds.
+- `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, both `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
 - `size`: the clarity of this video generation task, which can be `small` or `large`.
 - `image_urls`: the reference image links or Base64 encoded array that need to be uploaded.
 - `duration`: the duration of this video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
 - `character_start`/`character_end`: the starting and ending positions of the character in the frame (0-1), used to control the position of the subject.
-- `orientation`: the aspect ratio direction, supporting `landscape`, `portrait`, and `square`.
+- `orientation`: the aspect ratio, supporting `landscape`, `portrait`, and `square`.
 - `prompt`: the prompt.
 - `callback_url`: the URL to which the result needs to be returned.
 
@@ -38,7 +38,7 @@ After selection, you can see that the corresponding code is generated on the rig
 
 <p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we obtained the following result:
 
 ```json
 {
@@ -65,9 +65,9 @@ The returned result contains multiple fields, described as follows:
   - `video_url`: the video link of the video generation task at this time.
   - `state`: the status of the video generation task at this time.
 
-We can see that we have obtained satisfactory video information, and we only need to obtain the generated Sora video based on the video link address in the `data` result.
+We can see that we have obtained satisfactory video information, and we only need to access the generated Sora video using the video link address in the `data` result.
 
-Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, such as the CURL code below:
+Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
 ```shell
 curl -X POST 'https://api.acedata.cloud/sora/videos' \
@@ -85,19 +85,19 @@ curl -X POST 'https://api.acedata.cloud/sora/videos' \
 
 ## Image to Video Task
 
-If you want to create an image to video task, the parameter `image_urls` must first pass in the reference image links, which can specify the following content:
+If you want to create an image to video task, the parameter `image_urls` must first be passed in with the reference image links, which can specify the following content:
 
 - image_urls: the array of reference image links used for this image to video task.
 
-An example of filling in is as follows:
+An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" class="m-auto"></p>
 
-After filling in, the code is automatically generated as follows:
+After filling it out, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
-The corresponding code:
+The corresponding code is:
 
 ```python
 import requests
@@ -123,7 +123,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you can find that you will immediately get a result, as follows:
+Clicking run, you will find that an immediate result is obtained, as follows:
 ```
 {
   "success": true,
@@ -139,7 +139,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-It can be seen that the generated effect is a video created from an image, and the result is similar to the above text.
+It can be seen that the generated effect is a video created from images, and the result is similar to the above text.
 
 ## Character Generation Video Task
 
@@ -275,4 +275,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompt words and reference images. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompt words and reference images. We hope this document can help you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
