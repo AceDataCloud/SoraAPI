@@ -234,9 +234,9 @@ After a successful request, the API will return the specific details of all batc
 }
 ```
 
-The returned result has multiple fields, among which `items` contains the specific details of the batch video tasks. The specific information of each video task is the same as the fields mentioned above, and the field information is as follows.
+The returned result has multiple fields, among which items contain the specific details of the batch video tasks. The specific information of each video task is the same as the fields mentioned above, and the field information is as follows.
 
-- `items`, all specific details of the batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task mentioned above.
+- `items`, all specific details of the batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
 - `count`, the number of video tasks in this batch query.
 
 #### CURL

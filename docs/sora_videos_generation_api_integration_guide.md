@@ -4,7 +4,7 @@ This article will introduce the integration instructions for the Sora Videos Gen
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) page. After entering the page, click the "Acquire" button, as shown in the image:
+To use the API, you need to first apply for the corresponding service on the [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) page. After entering the page, click the "Acquire" button, as shown in the image below:
 
 ![](https://cdn.acedata.cloud/q6ytrc.png)
 
@@ -26,19 +26,19 @@ Here, we can see that we have set the Request Headers, including:
 Additionally, the Request Body is set, including:
 
 - `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, both `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
-- `size`: the clarity of this video generation task, which can be `small` or `large`.
+- `size`: the clarity of the video generation task, which can be `small` or `large`.
 - `image_urls`: the reference image links or Base64 encoded array that need to be uploaded.
-- `duration`: the duration of this video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
+- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
 - `character_start`/`character_end`: the starting and ending positions of the character in the frame (0-1), used to control the position of the subject.
 - `orientation`: the aspect ratio, supporting `landscape`, `portrait`, and `square`.
 - `prompt`: the prompt.
 - `callback_url`: the URL to which the result needs to be returned.
 
-After selection, you can see that the corresponding code is generated on the right side, as shown in the image:
+After selection, you can see that the corresponding code is generated on the right side, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we obtained the following result:
+Click the "Try" button to test it. As shown in the image above, we obtained the following result:
 
 ```json
 {
@@ -65,9 +65,9 @@ The returned result contains multiple fields, described as follows:
   - `video_url`: the video link of the video generation task at this time.
   - `state`: the status of the video generation task at this time.
 
-We can see that we have obtained satisfactory video information, and we only need to access the generated Sora video using the video link address in the `data` result.
+We can see that we have obtained satisfactory video information, and we only need to retrieve the generated Sora video using the video link address in the `data` result.
 
-Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
+Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, such as the CURL code below:
 
 ```shell
 curl -X POST 'https://api.acedata.cloud/sora/videos' \
@@ -139,7 +139,7 @@ Clicking run, you will find that an immediate result is obtained, as follows:
 }
 ```
 
-It can be seen that the generated effect is a video created from images, and the result is similar to the above text.
+It can be seen that the generated effect is a video created from an image, and the result is similar to the above text.
 
 ## Character Generation Video Task
 
@@ -204,7 +204,7 @@ It can be seen that the generated effect is a character generation video, and th
 
 ## Asynchronous Callback
 
-Since the Sora Videos Generation API takes a relatively long time to generate, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the Sora Videos Generation API takes a relatively long time to generate, about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
 The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
 
@@ -233,6 +233,7 @@ After a moment, we can observe the result of the generated song at `https://webh
 ![](https://cdn.acedata.cloud/0j7nra.png)
 
 The content is as follows:
+```
 ```json
 {
     "success": true,
