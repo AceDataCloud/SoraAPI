@@ -6,23 +6,23 @@ This document will provide detailed integration instructions for the Sora Tasks 
 
 ## Application Process
 
-To use the Sora Tasks API, you first need to apply for the corresponding service on the application page [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e), and then copy the task ID from the Sora Videos Generation API, as shown in the image below:
+To use the Sora Tasks API, you first need to apply for the corresponding service on the application page [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e), and then copy the task ID from the Sora Videos Generation API, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/za62pb.png" width="500" class="m-auto"></p>
 
-Finally, go to the Tasks API page [Sora Tasks API](https://platform.acedata.cloud/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the image below:
+Finally, go to the Tasks API page [Sora Tasks API](https://platform.acedata.cloud/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the image:
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
-If you have not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There will be a free quota offered for the first application, allowing you to use this API for free.
+There is a free quota available for first-time applicants, allowing you to use the API for free.
 
 ## Request Example
 
 The Sora Tasks API can be used to query the results of the Sora Videos Generation API. For information on how to use the Sora Videos Generation API, please refer to the document [Sora Videos Generation API](https://platform.acedata.cloud/documents/sora-videos-integration).
 
-We will take a task ID returned by the Sora Videos Generation API as an example to demonstrate how to use this API. Suppose we have a task ID: b8976e18-32dc-4718-9ed8-1ea090fcb6ea, and we will demonstrate how to pass in a task ID.
+We will take one task ID returned by the Sora Videos Generation API as an example to demonstrate how to use this API. Suppose we have a task ID: b8976e18-32dc-4718-9ed8-1ea090fcb6ea, and we will demonstrate how to pass in a task ID.
 
 ### Task Example Image
 
@@ -32,7 +32,7 @@ We will take a task ID returned by the Sora Videos Generation API as an example 
 
 **Request Headers** include:
 
-- `accept`: Specifies that the response result should be in JSON format, set to `application/json`.
+- `accept`: Specifies that the response should be in JSON format, set to `application/json`.
 - `authorization`: The key to call the API, which can be selected directly after application.
 
 **Request Body** includes:
@@ -46,7 +46,7 @@ Set as shown in the image below:
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image below:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/ou5lfa.png" width="500" class="m-auto"></p>
 
@@ -89,7 +89,7 @@ print(response.text)
 
 ### Response Example
 
-After a successful request, the API will return the detailed information of the video task here. For example:
+Upon successful request, the API will return the details of the video task here. For example:
 
 ```json
 {
@@ -136,7 +136,7 @@ The returned result contains multiple fields, with the request field being the r
 
 ## Batch Query Operation
 
-This is for querying the details of video tasks for multiple task IDs. Unlike the above, the action needs to be selected as retrieve_batch.
+This is for querying the details of video tasks for multiple task IDs, and unlike the above, the action needs to be selected as retrieve_batch.
 
 **Request Body** includes:
 
@@ -234,9 +234,9 @@ After a successful request, the API will return the specific details of all batc
 }
 ```
 
-The returned result contains multiple fields, among which items include the specific details of batch video tasks, and the specific information of each video task is the same as the fields mentioned above. The field information is as follows.
+The returned result has multiple fields, among which `items` contains the specific details of the batch video tasks. The specific information of each video task is the same as the fields mentioned above, and the field information is as follows.
 
-- `items`, all specific details of batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific details of the batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task mentioned above.
 - `count`, the number of video tasks in this batch query.
 
 #### CURL
