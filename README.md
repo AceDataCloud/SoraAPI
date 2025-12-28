@@ -17,7 +17,7 @@ To use the API, you need to first apply for the corresponding service on the [So
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota offered, allowing you to use the API for free.
+Upon your first application, there will be a free quota provided, allowing you to use the API for free.
 
 ### Basic Usage
 
@@ -32,12 +32,12 @@ Here, we can see that we have set the Request Headers, including:
 
 Additionally, the Request Body is set, including:
 
-- `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, both `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
+- `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
 - `size`: the clarity of the video generation task, which can be `small` or `large`.
 - `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
-- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s, with only `sora-2-pro` supporting 25s.
-- `character_start`/`character_end`: the starting and ending positions of the character in the frame (0-1), used to control the position of the subject.
-- `orientation`: the aspect ratio direction, supporting `landscape`, `portrait`, or `square`.
+- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
+- `character_start`/`character_end`: the start and end positions of the character in the frame (0-1), used to control the position of the subject.
+- `orientation`: the aspect ratio direction, supporting `landscape`, `portrait`, and `square`.
 - `prompt`: the prompt.
 - `callback_url`: the URL to which the result needs to be sent back.
 
@@ -45,7 +45,7 @@ After selection, you can see that the corresponding code is generated on the rig
 
 <p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we obtained the following result:
 
 ```json
 {
@@ -74,7 +74,7 @@ The returned result contains multiple fields, described as follows:
 
 We can see that we have obtained satisfactory video information, and we only need to access the generated Sora video using the video link address in the `data` result.
 
-Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
+Additionally, if you want to generate the corresponding integration code, you can directly copy it, for example, the CURL code is as follows:
 
 ```shell
 curl -X POST 'https://api.acedata.cloud/sora/videos' \
@@ -96,15 +96,15 @@ If you want to create an image to video task, the parameter `image_urls` must fi
 
 - image_urls: the array of reference image links used for this image to video task.
 
-An example of filling in is as follows:
+An example of filling it out is as follows:
 
 <p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" class="m-auto"></p>
 
-After filling in, the code is automatically generated as follows:
+After filling it out, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
-The corresponding code is:
+The corresponding code:
 
 ```python
 import requests
@@ -130,7 +130,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you can find that you will immediately get a result, as follows:
+Clicking run, you will find that you will immediately receive a result, as follows:
 ```
 {
   "success": true,
@@ -148,7 +148,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 
 It can be seen that the generated effect is a video created from images, and the result is similar to the above text.
 
-### Character Generation Video Task
+### Character Video Generation Task
 
 If you want to generate a character video task, the parameter `character_url` must first be passed in with the video link needed to create the character. Note that the video must not contain real people, otherwise it will fail. You can specify the following content:
 
@@ -207,7 +207,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-It can be seen that the generated effect is a character generation video, and the result is similar to the above text.
+It can be seen that the generated effect is a character-generated video, and the result is similar to the above text.
 
 ### Asynchronous Callback
 
@@ -235,7 +235,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-After a moment, we can observe the result of the generated song at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the image:
+After a moment, we can observe the generated song result at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the image:
 
 ![](https://cdn.acedata.cloud/0j7nra.png)
 
