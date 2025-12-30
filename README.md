@@ -32,10 +32,10 @@ Here, we can see that we have set the Request Headers, including:
 
 Additionally, the Request Body is set, including:
 
-- `model`: the model for generating videos, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
+- `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
 - `size`: the clarity of the video generation task, which can be `small` or `large`.
 - `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
-- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
+- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s, with only `sora-2-pro` supporting 25s.
 - `character_start`/`character_end`: the start and end positions of the character in the frame (0-1), used to control the position of the subject.
 - `orientation`: the aspect ratio, supporting `landscape`, `portrait`, or `square`.
 - `prompt`: the prompt.
@@ -45,7 +45,7 @@ After selection, you can see that the corresponding code is generated on the rig
 
 <p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test it, as shown in the image above, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
@@ -74,7 +74,7 @@ The returned result contains multiple fields, described as follows:
 
 We can see that we have obtained satisfactory video information, and we only need to access the generated Sora video using the video link address in the `data` result.
 
-Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, such as the CURL code below:
+Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
 ```shell
 curl -X POST 'https://api.acedata.cloud/sora/videos' \
@@ -92,7 +92,7 @@ curl -X POST 'https://api.acedata.cloud/sora/videos' \
 
 ### Image to Video Task
 
-If you want to create an image to video task, the parameter `image_urls` must first be passed in with the reference image links, allowing you to specify the following content:
+If you want to create an image to video task, the parameter `image_urls` must first be passed with the reference image links, allowing you to specify the following content:
 
 - image_urls: the array of reference image links used for this image to video task.
 
@@ -211,19 +211,19 @@ It can be seen that the generated effect is a character generation video, and th
 
 ### Asynchronous Callback
 
-Since the Sora Videos Generation API takes a relatively long time to generate, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the Sora Videos Generation API takes a relatively long time to generate, about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
 The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site https://webhook.site/ is used. Opening this site will give you a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site https://webhook.site/ is used. Open this site to get a Webhook URL, as shown in the figure:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`.
 
-Next, we can set the `callback_url` field to the above Webhook URL, while filling in the corresponding parameters, as shown in the image:
+Next, we can set the `callback_url` field to the above Webhook URL, while filling in the corresponding parameters, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/v1m05g.png" width="500" class="m-auto"></p>
 
@@ -235,7 +235,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-After a moment, we can observe the result of the generated song at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the image:
+After a moment, we can observe the result of the generated song at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the figure:
 
 ![](https://cdn.acedata.cloud/0j7nra.png)
 
