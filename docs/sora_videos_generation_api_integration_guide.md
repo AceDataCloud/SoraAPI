@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [So
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota offered, allowing you to use the API for free.
+Upon your first application, there will be a free quota available for you to use the API for free.
 
 ## Basic Usage
 
@@ -25,14 +25,14 @@ Here, we can see that we have set the Request Headers, including:
 
 Additionally, the Request Body is set, including:
 
-- `model`: the model for generating videos, mainly `sora-2` and `sora-2-pro`. Currently, both `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
+- `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
 - `size`: the clarity of this video generation task, which can be `small` or `large`.
-- `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
-- `duration`: the duration of this video generation task, which can be 10s, 15s, or 25s, with only `sora-2-pro` supporting 25s.
+- `image_urls`: the reference image links or Base64 encoded array that need to be uploaded.
+- `duration`: the duration of this video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
 - `character_start`/`character_end`: the start and end positions of the character in the frame (0-1), used to control the position of the subject.
-- `orientation`: the aspect ratio direction, supporting `landscape`, `portrait`, or `square`.
-- `prompt`: the prompt.
-- `callback_url`: the URL to which the result needs to be sent back.
+- `orientation`: the aspect ratio direction, supporting `landscape`, `portrait`, and `square`.
+- `prompt`: the prompt word.
+- `callback_url`: the URL to which the result needs to be returned.
 
 After selection, you can see that the corresponding code is generated on the right side, as shown in the image:
 
@@ -85,7 +85,7 @@ curl -X POST 'https://api.acedata.cloud/sora/videos' \
 
 ## Image to Video Task
 
-If you want to create an image to video task, the parameter `image_urls` must first be passed with the reference image links, allowing you to specify the following content:
+If you want to create an image to video task, the parameter `image_urls` must be passed with the reference image links, allowing you to specify the following content:
 
 - image_urls: the array of reference image links used for this image to video task.
 
@@ -97,7 +97,7 @@ After filling in, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
-The corresponding code:
+The corresponding code is:
 
 ```python
 import requests
@@ -123,7 +123,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you can find that you will immediately receive a result, as follows:
+Clicking run, you can find that you will immediately get a result, as follows:
 ```
 {
   "success": true,
@@ -210,7 +210,7 @@ The overall process is: when the client initiates a request, an additional `call
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site https://webhook.site/ is used. Opening this site will give you a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site https://webhook.site/ is used. Opening this site will provide a Webhook URL, as shown in the image:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
