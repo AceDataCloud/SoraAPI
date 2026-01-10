@@ -23,7 +23,7 @@ Finally, go to the Tasks API page [Sora Tasks API](https://platform.acedata.clou
 
 If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There is a free quota available for first-time applicants, allowing you to use this API for free.
+There is a free quota available for first-time applicants, allowing you to use the API for free.
 
 ### Request Example
 
@@ -53,7 +53,7 @@ Set as shown in the image below:
 
 #### Code Example
 
-It can be seen that various language codes have been automatically generated on the right side of the page, as shown in the image:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/ou5lfa.png" width="500" class="m-auto"></p>
 
