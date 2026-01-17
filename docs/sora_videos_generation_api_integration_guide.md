@@ -29,7 +29,7 @@ Additionally, the Request Body is set, including:
 - `size`: the clarity of the video generation task, which can be `small` or `large`.
 - `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
 - `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s, with only `sora-2-pro` supporting 25s.
-- `character_start`/`character_end`: the start and end positions of the character in the frame (0-1), used to control the position of the subject.
+- `character_start`/`character_end`: the starting and ending positions of the character in the frame (0-1), used to control the position of the subject.
 - `orientation`: the aspect ratio, supporting `landscape`, `portrait`, or `square`.
 - `prompt`: the prompt.
 - `callback_url`: the URL to which the result needs to be sent back.
@@ -85,19 +85,19 @@ curl -X POST 'https://api.acedata.cloud/sora/videos' \
 
 ## Image to Video Task
 
-If you want to create an image to video task, the parameter `image_urls` must first be passed with the reference image links, allowing you to specify the following content:
+If you want to create an image to video task, the parameter `image_urls` must first be passed in with the reference image links, allowing you to specify the following content:
 
 - image_urls: the array of reference image links used for this image to video task.
 
-An example of filling in is as follows:
+An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" class="m-auto"></p>
 
-After filling in, the code is automatically generated as follows:
+After filling it out, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
-The corresponding code:
+The corresponding code is:
 
 ```python
 import requests
@@ -141,13 +141,13 @@ Clicking run, you will find that a result is immediately obtained, as follows:
 
 It can be seen that the generated effect is a video created from images, and the result is similar to the above text.
 
-## Character Generation Video Task
+## Character Video Generation Task
 
 If you want to generate a character video task, the parameter `character_url` must first be passed in with the video link needed to create the character. Note that the video must not contain real people, otherwise it will fail. You can specify the following content:
 
 - character_url: The video link needed to create the character. Note that the video must not contain real people, otherwise it will fail.
 
-An example of filling in is as follows:
+An example of how to fill it out is as follows:
 
 <p><img src="https://cdn.acedata.cloud/2nhdr2.png" width="500" class="m-auto"></p>
 
@@ -200,7 +200,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-It can be seen that the generated effect is a character generation video, and the result is similar to the above text.
+It can be seen that the generated effect is a character-generated video, and the result is similar to the above text.
 
 ## Asynchronous Callback
 
@@ -228,7 +228,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-After a moment, we can observe the result of the generated song at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the image:
+After a moment, we can observe the generated song result at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the image:
 
 ![](https://cdn.acedata.cloud/0j7nra.png)
 
@@ -276,4 +276,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompt words and reference images. We hope this document can help you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompt words and reference images. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
