@@ -25,10 +25,10 @@ Here, we can see that we have set the Request Headers, including:
 
 Additionally, the Request Body is set, including:
 
-- `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, both `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
+- `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
 - `size`: the clarity of the video generation task, which can be `small` or `large`.
 - `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
-- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
+- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s, with only `sora-2-pro` supporting 25s.
 - `character_start`/`character_end`: the starting and ending positions of the character in the frame (0-1), used to control the position of the subject.
 - `orientation`: the aspect ratio, supporting `landscape`, `portrait`, or `square`.
 - `prompt`: the prompt.
@@ -85,7 +85,7 @@ curl -X POST 'https://api.acedata.cloud/sora/videos' \
 
 ## Image to Video Task
 
-If you want to create an image to video task, the parameter `image_urls` must first pass in the reference image links, allowing you to specify the following content:
+If you want to create an image to video task, the parameter `image_urls` must first be passed with the reference image links, allowing you to specify the following content:
 
 - image_urls: the array of reference image links used for this image to video task.
 
@@ -97,7 +97,7 @@ After filling in, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
-The corresponding code:
+The corresponding code is:
 
 ```python
 import requests
@@ -141,13 +141,13 @@ Clicking run, you can find that you will immediately get a result, as follows:
 
 It can be seen that the generated effect is a video created from images, and the result is similar to the above text.
 
-## Character Generation Video Task
+## Character Video Generation Task
 
 If you want to generate a character video task, the parameter `character_url` must first be passed in with the video link needed to create the character. Note that the video must not contain real people, otherwise it will fail. You can specify the following content:
 
 - character_url: The video link needed to create the character. Note that the video must not contain real people, otherwise it will fail.
 
-An example of how to fill it out is as follows:
+An example of filling in is as follows:
 
 <p><img src="https://cdn.acedata.cloud/2nhdr2.png" width="500" class="m-auto"></p>
 
@@ -200,7 +200,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-It can be seen that the generated effect is a character generation video, and the result is similar to the above text.
+It can be seen that the generated effect is a character-generated video, and the result is similar to the above text.
 
 ## Asynchronous Callback
 
@@ -249,7 +249,7 @@ The content is as follows:
 }
 ```
 
-You can see that the result contains a `task_id` field, and other fields are similar to the above text. This field can be used to associate tasks.
+You can see that the result contains a `task_id` field, and the other fields are similar to the above text. This field can be used to associate tasks.
 
 ## Error Handling
 
