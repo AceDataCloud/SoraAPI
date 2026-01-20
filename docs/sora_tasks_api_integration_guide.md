@@ -16,7 +16,7 @@ Finally, go to the Tasks API page [Sora Tasks API](https://platform.acedata.clou
 
 If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There is a free quota available for first-time applicants, allowing you to use the API for free.
+There is a free quota available for first-time applicants, allowing you to use this API for free.
 
 ## Request Example
 
@@ -89,7 +89,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the detailed information of the video task here. For example:
+Upon successful request, the API will return the details of the video task here. For example:
 
 ```json
 {
@@ -136,7 +136,7 @@ The returned result contains multiple fields, with the request field being the r
 
 ## Batch Query Operation
 
-This is for querying the details of multiple task IDs, and unlike the above, the action needs to be selected as retrieve_batch.
+This is for querying the details of video tasks for multiple task IDs, and unlike the above, the action needs to be selected as retrieve_batch.
 
 **Request Body** includes:
 
