@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [So
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota offered, allowing you to use the API for free.
+Upon your first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -28,8 +28,8 @@ Additionally, the Request Body is set, including:
 - `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
 - `size`: the clarity of the video generation task, which can be `small` or `large`.
 - `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
-- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s, with only `sora-2-pro` supporting 25s.
-- `character_start`/`character_end`: the starting and ending positions of the character in the frame (0-1), used to control the position of the subject.
+- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
+- `character_start`/`character_end`: the start and end positions of the character in the frame (0-1), used to control the position of the subject.
 - `orientation`: the aspect ratio, supporting `landscape`, `portrait`, or `square`.
 - `prompt`: the prompt.
 - `callback_url`: the URL to which the result needs to be sent back.
@@ -38,7 +38,7 @@ After selection, you can see that the corresponding code is generated on the rig
 
 <p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we obtained the following result:
 
 ```json
 {
@@ -89,15 +89,15 @@ If you want to create an image to video task, the parameter `image_urls` must fi
 
 - image_urls: the array of reference image links used for this image to video task.
 
-An example of the input is as follows:
+An example of filling in is as follows:
 
 <p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" class="m-auto"></p>
 
-After filling it out, the code is automatically generated as follows:
+After filling in, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
-The corresponding code is:
+The corresponding code:
 
 ```python
 import requests
@@ -123,7 +123,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you can find that you will immediately receive a result, as follows:
+Clicking run, you will find that an immediate result is obtained, as follows:
 ```
 {
   "success": true,
@@ -143,7 +143,7 @@ It can be seen that the generated effect is a video created from images, and the
 
 ## Character Video Generation Task
 
-If you want to generate a character video task, the parameter `character_url` must first be passed in with the video link needed to create the character. Note that the video must not contain real people, otherwise it will fail. You can specify the following content:
+If you want to generate a character video task, first the parameter `character_url` must be passed in with the video link needed to create the character. Note that the video must not contain real people, otherwise it will fail, and you can specify the following content:
 
 - character_url: The video link needed to create the character. Note that the video must not contain real people, otherwise it will fail.
 
@@ -210,7 +210,7 @@ The overall process is: when the client initiates a request, an additional `call
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience, a public Webhook sample site https://webhook.site/ is used. Opening this site will give you a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience in demonstration, a public Webhook sample site https://webhook.site/ is used. Opening this site will give you a Webhook URL, as shown in the image:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
@@ -233,7 +233,6 @@ After a moment, we can observe the result of the generated song at `https://webh
 ![](https://cdn.acedata.cloud/0j7nra.png)
 
 The content is as follows:
-```
 ```json
 {
     "success": true,
