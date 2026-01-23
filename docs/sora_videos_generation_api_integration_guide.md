@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [So
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota provided, allowing you to use the API for free.
+Upon your first application, there will be a free quota available for you to use the API for free.
 
 ## Basic Usage
 
@@ -18,7 +18,7 @@ First, understand the basic usage method, which involves inputting the prompt `p
 
 <p><img src="https://cdn.acedata.cloud/h8dyz3.png" width="500" class="m-auto"></p>
 
-Here, we can see that we have set the Request Headers, including:
+Here we can see that we have set the Request Headers, including:
 
 - `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
 - `authorization`: the key to call the API, which can be selected directly after application.
@@ -85,19 +85,19 @@ curl -X POST 'https://api.acedata.cloud/sora/videos' \
 
 ## Image to Video Task
 
-If you want to create an image to video task, the parameter `image_urls` must first be passed with the reference image links, allowing you to specify the following content:
+If you want to create an image to video task, the parameter `image_urls` must first pass in the reference image links, which can specify the following content:
 
 - image_urls: the array of reference image links used for this image to video task.
 
-An example of the input is as follows:
+An example of filling in is as follows:
 
 <p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" class="m-auto"></p>
 
-After filling it out, the code is automatically generated as follows:
+After filling in, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
-The corresponding code is:
+The corresponding code:
 
 ```python
 import requests
@@ -123,7 +123,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you will find that an immediate result is obtained, as follows:
+Clicking run, you can find that you will immediately get a result, as follows:
 ```
 {
   "success": true,
@@ -147,7 +147,7 @@ If you want to generate a character video task, the parameter `character_url` mu
 
 - character_url: The video link needed to create the character. Note that the video must not contain real people, otherwise it will fail.
 
-An example of how to fill it out is as follows:
+An example of filling in is as follows:
 
 <p><img src="https://cdn.acedata.cloud/2nhdr2.png" width="500" class="m-auto"></p>
 
@@ -204,9 +204,9 @@ It can be seen that the generated effect is a character generation video, and th
 
 ## Asynchronous Callback
 
-Since the Sora Videos Generation API takes a relatively long time to generate, about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the Sora Videos Generation API takes a relatively long time to generate, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
@@ -228,7 +228,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-After a moment, we can observe the generated song result at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the image:
+After a moment, we can observe the result of the generated song at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the image:
 
 ![](https://cdn.acedata.cloud/0j7nra.png)
 
@@ -249,7 +249,7 @@ The content is as follows:
 }
 ```
 
-You can see that the result contains a `task_id` field, and other fields are similar to the above text. This field can be used to associate tasks.
+You can see that the result contains a `task_id` field, and the other fields are similar to the above text. This field can be used to associate tasks.
 
 ## Error Handling
 
