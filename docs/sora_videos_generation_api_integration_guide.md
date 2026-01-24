@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [So
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota offered, allowing you to use the API for free.
+Upon your first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -26,19 +26,19 @@ Here, we can see that we have set the Request Headers, including:
 Additionally, the Request Body is set, including:
 
 - `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
-- `size`: the clarity of this video generation task, which can be `small` or `large`.
-- `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
-- `duration`: the duration of this video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
+- `size`: the clarity of the video generation task, which can be `small` or `large`.
+- `image_urls`: the reference image links or Base64 encoded array that need to be uploaded.
+- `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
 - `character_start`/`character_end`: the start and end positions of the character in the frame (0-1), used to control the position of the subject.
-- `orientation`: the aspect ratio, supporting `landscape`, `portrait`, or `square`.
+- `orientation`: the aspect ratio direction, supporting `landscape`, `portrait`, and `square`.
 - `prompt`: the prompt.
-- `callback_url`: the URL to which the result needs to be sent back.
+- `callback_url`: the URL to which the result needs to be returned.
 
 After selection, you can see that the corresponding code is generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we get the following result:
+Click the "Try" button to test, as shown in the image above, and we obtained the following result:
 
 ```json
 {
@@ -123,7 +123,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you will find that a result is immediately obtained, as follows:
+Clicking run, you can find that you will immediately receive a result, as follows:
 ```
 {
   "success": true,
@@ -204,9 +204,9 @@ It can be seen that the generated effect is a character generation video, and th
 
 ## Asynchronous Callback
 
-Since the Sora Videos Generation API takes a relatively long time to generate, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the Sora Videos Generation API takes a relatively long time to generate, about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
