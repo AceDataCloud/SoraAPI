@@ -39,7 +39,7 @@ We will take one task ID returned by the Sora Videos Generation API as an exampl
 
 **Request Headers** include:
 
-- `accept`: Specifies that the response should be in JSON format, set to `application/json`.
+- `accept`: Specifies that the response result should be in JSON format, set to `application/json`.
 - `authorization`: The key to call the API, which can be selected directly after application.
 
 **Request Body** includes:
