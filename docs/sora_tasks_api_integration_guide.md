@@ -46,7 +46,7 @@ Set as shown in the image below:
 
 ### Code Example
 
-It can be seen that various language codes have been automatically generated on the right side of the page, as shown in the image:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/ou5lfa.png" width="500" class="m-auto"></p>
 
@@ -156,7 +156,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-After a successful request, the API will return the specific details of all batch video tasks for this time. For example:
+After a successful request, the API will return the specific details of all batch video tasks. For example:
 
 ```json
 {
@@ -234,9 +234,9 @@ After a successful request, the API will return the specific details of all batc
 }
 ```
 
-The returned result contains multiple fields, among which items include the specific details of batch video tasks, and the specific information of each video task is the same as the fields mentioned above. The field information is as follows.
+The returned result contains multiple fields, among which `items` includes the specific details of the batch video tasks. The specific information of each video task is the same as the fields mentioned above, and the field information is as follows.
 
-- `items`, all specific details of batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific details of the batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
 - `count`, the number of video tasks in this batch query.
 
 #### CURL
