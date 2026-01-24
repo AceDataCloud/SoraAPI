@@ -32,7 +32,7 @@ We will take one task ID returned by the Sora Videos Generation API as an exampl
 
 **Request Headers** include:
 
-- `accept`: Specifies that the response result should be in JSON format, set to `application/json`.
+- `accept`: Specifies that the response should be in JSON format, set to `application/json`.
 - `authorization`: The key to call the API, which can be selected directly after application.
 
 **Request Body** includes:
@@ -156,7 +156,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-After a successful request, the API will return the specific details of all batch video tasks. For example:
+After a successful request, the API will return the specific details of all batch video tasks for this time. For example:
 
 ```json
 {
@@ -234,9 +234,9 @@ After a successful request, the API will return the specific details of all batc
 }
 ```
 
-The returned result has multiple fields, among which items contain the specific details of the batch video tasks, and the specific information of each video task is the same as the fields mentioned above. The field information is as follows.
+The returned result contains multiple fields, among which items include the specific details of batch video tasks, and the specific information of each video task is the same as the fields mentioned above. The field information is as follows.
 
-- `items`, all specific details of the batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific details of batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
 - `count`, the number of video tasks in this batch query.
 
 #### CURL
