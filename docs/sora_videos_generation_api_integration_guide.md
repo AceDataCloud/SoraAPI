@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [So
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota available for you to use the API for free.
+Upon your first application, there will be a free quota offered, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -25,7 +25,7 @@ Here, we can see that we have set the Request Headers, including:
 
 Additionally, the Request Body is set, including:
 
-- `model`: the model for generating videos, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
+- `model`: the model for generating the video, mainly `sora-2` and `sora-2-pro`. Currently, `sora-2` and `sora-2-pro` allow you to choose the `size` and `duration` parameters for the video, where `sora-2-pro` supports a `duration` of 25 seconds, while `sora-2` only supports 10 and 15 seconds.
 - `size`: the clarity of the video generation task, which can be `small` or `large`.
 - `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
 - `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
@@ -85,15 +85,15 @@ curl -X POST 'https://api.acedata.cloud/sora/videos' \
 
 ## Image to Video Task
 
-If you want to create an image to video task, the parameter `image_urls` must be passed with the reference image links, allowing you to specify the following content:
+If you want to create an image to video task, the parameter `image_urls` must first pass in the reference image links, allowing you to specify the following content:
 
 - image_urls: the array of reference image links used for this image to video task.
 
-An example of the input is as follows:
+An example of filling in is as follows:
 
 <p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" class="m-auto"></p>
 
-After filling it out, the code is automatically generated as follows:
+After filling in, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
@@ -123,7 +123,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you will find that a result is immediately obtained, as follows:
+Clicking run, you can find that you will immediately get a result, as follows:
 ```
 {
   "success": true,
@@ -204,19 +204,19 @@ It can be seen that the generated effect is a character generation video, and th
 
 ## Asynchronous Callback
 
-Since the Sora Videos Generation API takes a relatively long time to generate, about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the Sora Videos Generation API takes a relatively long time to generate, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Let’s understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site https://webhook.site/ is used. Open this site to get a Webhook URL, as shown in the figure:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, a public Webhook sample site https://webhook.site/ is used. Opening this site will give you a Webhook URL, as shown in the image:
 
 ![](https://cdn.acedata.cloud/cjjfly.png)
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`.
 
-Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, as shown in the figure:
+Next, we can set the `callback_url` field to the above Webhook URL, while filling in the corresponding parameters, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/v1m05g.png" width="500" class="m-auto"></p>
 
@@ -228,11 +228,12 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-After a moment, we can observe the result of the generated song at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the figure:
+After a moment, we can observe the result of the generated song at `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, as shown in the image:
 
 ![](https://cdn.acedata.cloud/0j7nra.png)
 
 The content is as follows:
+```
 ```json
 {
     "success": true,
@@ -275,4 +276,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompt words and reference images. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompts and reference images. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
