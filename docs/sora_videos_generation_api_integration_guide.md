@@ -38,7 +38,7 @@ After selection, you can see that the corresponding code is generated on the rig
 
 <p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we obtained the following result:
+Click the "Try" button to test, as shown in the image above, and we get the following result:
 
 ```json
 {
@@ -67,7 +67,7 @@ The returned result contains multiple fields, described as follows:
 
 We can see that we have obtained satisfactory video information, and we only need to access the generated Sora video using the video link address in the `data` result.
 
-Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
+Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, such as the CURL code below:
 
 ```shell
 curl -X POST 'https://api.acedata.cloud/sora/videos' \
@@ -89,7 +89,7 @@ If you want to create an image to video task, the parameter `image_urls` must fi
 
 - image_urls: the array of reference image links used for this image to video task.
 
-An example of filling in is as follows:
+An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" class="m-auto"></p>
 
@@ -97,7 +97,7 @@ After filling it out, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
-The corresponding code:
+The corresponding code is:
 
 ```python
 import requests
@@ -123,7 +123,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you will find that you will immediately receive a result, as follows:
+Clicking run, you can find that you will immediately receive a result, as follows:
 ```
 {
   "success": true,
@@ -141,7 +141,7 @@ Clicking run, you will find that you will immediately receive a result, as follo
 
 It can be seen that the generated effect is a video created from images, and the result is similar to the above text.
 
-## Character Generation Video Task
+## Character Video Generation Task
 
 If you want to generate a character video task, the parameter `character_url` must first be passed in with the video link needed to create the character. Note that the video must not contain real people, otherwise it will fail. You can specify the following content:
 
@@ -200,7 +200,7 @@ Clicking run, you can find that you will immediately get a result, as follows:
 }
 ```
 
-It can be seen that the generated effect is a character generation video, and the result is similar to the above text.
+It can be seen that the generated effect is a character-generated video, and the result is similar to the above text.
 
 ## Asynchronous Callback
 
@@ -276,4 +276,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompts and reference images. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompt words and reference images. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
