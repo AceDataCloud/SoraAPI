@@ -46,7 +46,7 @@ Set as shown in the image below:
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
+It can be seen that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/ou5lfa.png" width="500" class="m-auto"></p>
 
@@ -89,7 +89,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the details of the video task here. For example:
+Upon successful request, the API will return the detailed information of the video task here. For example:
 
 ```json
 {
@@ -156,7 +156,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-After a successful request, the API will return the specific details of all batch video tasks for this time. For example:
+After a successful request, the API will return the specific details of all batch video tasks. For example:
 
 ```json
 {
@@ -234,9 +234,9 @@ After a successful request, the API will return the specific details of all batc
 }
 ```
 
-The returned result contains multiple fields, among which items include the specific details of the batch video tasks, and the specific information of each video task is the same as the fields mentioned above, with the field information as follows.
+The returned result contains multiple fields, among which items include the specific details of batch video tasks, and the specific information of each video task is the same as the fields mentioned above. The field information is as follows.
 
-- `items`, all specific details of the batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific details of batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
 - `count`, the number of video tasks in this batch query.
 
 #### CURL
@@ -298,4 +298,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Sora Tasks API to query details for single or batch video tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Sora Tasks API to query detailed information about single or batch video tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
