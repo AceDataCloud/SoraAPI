@@ -136,7 +136,7 @@ The returned result contains multiple fields, with the request field being the r
 
 ## Batch Query Operation
 
-This is for querying the details of video tasks for multiple task IDs, and unlike the above, the action needs to be selected as retrieve_batch.
+This is for querying the details of multiple task IDs, and unlike the above, the action needs to be selected as retrieve_batch.
 
 **Request Body** includes:
 
@@ -298,4 +298,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Sora Tasks API to query details for single or batch video tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Sora Tasks API to query detailed information about single or batch video tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
