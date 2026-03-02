@@ -30,7 +30,7 @@ Additionally, the Request Body is set, including:
 - `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
 - `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
 - `character_start`/`character_end`: the start and end positions of the character in the frame (0-1), used to control the position of the subject.
-- `orientation`: the aspect ratio, supporting `landscape`, `portrait`, or `square`.
+- `orientation`: the aspect ratio direction, supporting `landscape`, `portrait`, and `square`.
 - `prompt`: the prompt.
 - `callback_url`: the URL to which the result needs to be sent back.
 
@@ -204,7 +204,7 @@ It can be seen that the generated effect is a character generation video, and th
 
 ## Asynchronous Callback
 
-Since the Sora Videos Generation API takes a relatively long time to generate, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+Since the Sora Videos Generation API takes a relatively long time to generate, about 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
 
 The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field information, representing the current task ID. When the task is completed, the generated video result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, so that the task result can be associated by ID.
 
@@ -249,7 +249,7 @@ The content is as follows:
 }
 ```
 
-You can see that the result contains a `task_id` field, and other fields are similar to the above text. This field can be used to associate tasks.
+You can see that the result contains a `task_id` field, and the other fields are similar to the above text. This field can be used to associate tasks.
 
 ## Error Handling
 
