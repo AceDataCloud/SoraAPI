@@ -10,7 +10,7 @@ To use the API, you need to first apply for the corresponding service on the [So
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon your first application, there will be a free quota offered, allowing you to use the API for free.
+Upon your first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -30,7 +30,7 @@ Additionally, the Request Body is set, including:
 - `image_urls`: the array of reference image links or Base64 encoded images to be uploaded.
 - `duration`: the duration of the video generation task, which can be 10s, 15s, or 25s. Currently, only `sora-2-pro` supports 25s.
 - `character_start`/`character_end`: the start and end positions of the character in the frame (0-1), used to control the position of the subject.
-- `orientation`: the aspect ratio, supporting `landscape`, `portrait`, or `square`.
+- `orientation`: the aspect ratio direction, supporting `landscape`, `portrait`, and `square`.
 - `prompt`: the prompt.
 - `callback_url`: the URL to which the result needs to be sent back.
 
@@ -67,7 +67,7 @@ The returned result contains multiple fields, described as follows:
 
 We can see that we have obtained satisfactory video information, and we only need to access the generated Sora video using the video link address in the `data` result.
 
-Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
+Additionally, if you want to generate the corresponding integration code, you can directly copy it, for example, the CURL code is as follows:
 
 ```shell
 curl -X POST 'https://api.acedata.cloud/sora/videos' \
@@ -85,7 +85,7 @@ curl -X POST 'https://api.acedata.cloud/sora/videos' \
 
 ## Image to Video Task
 
-If you want to create an image to video task, the parameter `image_urls` must be passed with the reference image links, allowing you to specify the following content:
+If you want to create an image to video task, the parameter `image_urls` must first pass in the reference image links, allowing you to specify the following content:
 
 - image_urls: the array of reference image links used for this image to video task.
 
@@ -93,7 +93,7 @@ An example of filling in is as follows:
 
 <p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" class="m-auto"></p>
 
-After filling in, the code is automatically generated as follows:
+After filling it out, the code is automatically generated as follows:
 
 <p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" class="m-auto"></p>
 
@@ -123,7 +123,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you will find that a result is immediately obtained, as follows:
+Clicking run, you will find that an immediate result is obtained, as follows:
 ```
 {
   "success": true,
@@ -276,4 +276,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompts and reference images. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Sora Videos Generation API to generate videos by inputting prompt words and reference images. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
