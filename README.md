@@ -468,6 +468,7 @@ text-decoration: none !important;
 }
 .sora-page .btn-cta-ghost:hover { border-color: var(--el-text-color-regular); color: #e2e8f0 !important; text-decoration: none !important; }
 .sora-page code
+```css
 {
 background: #dbeafe !important;
 padding: 2px 8px !important;
@@ -599,6 +600,7 @@ Generate <span>AI Videos</span>
 </h1>
 <p class="hero-subtitle">
 Integrate OpenAI Sora video generation capabilities into your application through a stable and comprehensive REST API. Text-to-video, image-to-video, character-driven video—all accomplished through a unified interface.
+```
 </p>
 <div class="hero-actions">
 <a href="https://platform.acedata.cloud/documents/sora-videos" class="s-btn-primary">📄 View Documentation</a>
@@ -701,16 +703,16 @@ Integrate OpenAI Sora video generation capabilities into your application throug
 <div class="code-lang">cURL</div>
 </div>
 <pre class="code-block">curl -X POST https://api.acedata.cloud/sora/videos \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "prompt": "A cat running through a sunlit meadow",
-    "model": "sora-2",
-    "duration": 10,
-    "orientation": "landscape",
-    "size": "large",
-    "callback_url": "https://your-app.com/webhook"
-  }'</pre>
+-H "Authorization: Bearer YOUR_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{
+"prompt": "A cat running through a sunlit meadow",
+"model": "sora-2",
+"duration": 10,
+"orientation": "landscape",
+"size": "large",
+"callback_url": "https://your-app.com/webhook"
+}'</pre>
 </div>
 <div style="margin-top: 16px;">
 <div class="code-wrap">
@@ -719,16 +721,17 @@ Integrate OpenAI Sora video generation capabilities into your application throug
 <div class="code-lang">Response</div>
 </div>
 <pre class="code-block">{
-  "success": true,
-  "task_id": "c7e3a1...",
-  "data": {
-    "id": "f9d2b4...",
-    "video_url": "https://cdn.acedata.cloud/f9d2b4.mp4",
-    "state": "succeeded",
-    "prompt": "A cat running through a sunlit meadow",
-    "model": "sora-2",
-    "duration": 10
-  }
+"success": true,
+"task_id": "c7e3a1...",
+"data":
+{
+"id": "f9d2b4...",
+"video_url": "https://cdn.acedata.cloud/f9d2b4.mp4",
+"state": "succeeded",
+"prompt": "A cat running through a sunlit meadow",
+"model": "sora-2",
+"duration": 10
+}
 }</pre>
 </div>
 </div>
@@ -1122,7 +1125,6 @@ Integrate OpenAI Sora video generation capabilities into your application throug
 <div class="rel-grid">
 <a
 
-
 ## Quick Start
 
 - Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
@@ -1142,7 +1144,7 @@ Explore the supported endpoints and integration guides for Sora Video Generation
 
 | API | Path | Integration Guidance |
 | ---- | ---- | ------------ |
-| [Sora Tasks API](https://platform.acedata.cloud/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16) | `/sora/tasks` | [](https://platform.acedata.cloud/documents/) |
+| [Sora Tasks API](https://platform.acedata.cloud/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16) | `/sora/tasks` | [Sora Tasks API Integration Guide](https://platform.acedata.cloud/documents/a90964ff-27e4-4645-8d77-80755c8e731b) |
 | [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) | `/sora/videos` | [Sora Videos Generation API Integration Guide](https://platform.acedata.cloud/documents/ac9a395e-9306-460f-b22e-9edda07514fc) |
 
 ## Related Resources
